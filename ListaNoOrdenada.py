@@ -161,8 +161,30 @@ class ListaNoOrdenada:
         newNodo.asignarSiguiente(actual.obtenerSiguiente())
         #[C] 3.2 Cambiar apuntador Nodo Actual
         actual.asignarSiguiente(newNodo)
-        #[C] 4.0 cambiar apuntadores
-        pass
+
+    def extraer(self,pos):
+        #[D] Eliminar nodo por posicion
+        #[D] 1.0 Encontrar posicion nodo anterior
+        posicionlistado = int(self.tamanio()) - pos - 1
+        #[D] 1.1 Encontrar nodo anterior
+        actual = self.cabeza
+        anterior = None
+        for i in range(0, posicionlistado):
+            anterior = actual
+            actual = actual.obtenerSiguiente()
+        
+        #[D] 2.0 Remplazar apuntadores
+        #[D] 2.1 Obtener Nodos
+        nodoaeliminar = actual.obtenerSiguiente()
+        nodosiguiente = nodoaeliminar.obtenerSiguiente()
+        #[D] 2.2 Remplazar Nodos
+        actual.asignarSiguiente(nodosiguiente)
+        print("Nodo Eliminado")
+
+        return nodoaeliminar
+
+        
+
 
 miLista = ListaNoOrdenada()
 
@@ -218,9 +240,6 @@ miLista.indice("Pancho")
 
 
 # In[34]
-posicionlistado = 3
-
-for i in range(0, posicionlistado):
-        print("paso aqui ", i )
+miLista.extraer(2)
 
 # %%
