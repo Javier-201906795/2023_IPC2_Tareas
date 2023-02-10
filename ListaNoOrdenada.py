@@ -121,24 +121,10 @@ class ListaNoOrdenada:
                 anterior = actual
                 actual = actual.obtenerSiguiente()
 
-        #[B] 2.1 Contar Numero TOTAL de Nodos
-        banderafin = False
-        actual = self.cabeza
-        anterior = None
-        numeronodostotal = 0
-        while not banderafin:
-            numeronodostotal += 1
-            if actual.obtenerSiguiente() == None :
-                banderafin = True
-            else:
-                anterior = actual
-                actual = actual.obtenerSiguiente()
-        
-        #print(numeronodostotal)
-        #print(posicion)
 
         #[B] 1.3 Retornar Ubicacion
-        posicion = numeronodostotal - contador + 1
+        # posicion = numeronodostotal - contador + 1
+        posicion = self.tamanio() - contador 
         
         return posicion
     
@@ -148,10 +134,10 @@ class ListaNoOrdenada:
         #[C] 1.0 Buscar Item en esa posicion
         #[C] 1.1 Obtener posicion en el listado 
         posicionlistado = int(self.tamanio()) - pos
-        #[C] 1.2 Encontrar item a remplazar posicion
+        #[C] 1.2 Encontrar item a remplazar posicion (-1)
         actual = self.cabeza
         anterior = None
-        for i in range(0, posicionlistado):
+        for i in range(0, posicionlistado - 1):
             anterior = actual
             actual = actual.obtenerSiguiente() 
         #[C] 2.0 Crear Nuevo Nodo
@@ -164,24 +150,34 @@ class ListaNoOrdenada:
 
     def extraer(self,pos):
         #[D] Eliminar nodo por posicion
-        #[D] 1.0 Encontrar posicion nodo anterior
-        posicionlistado = int(self.tamanio()) - pos - 1
+        #[D] 1.0 Encontrar posicion nodo anterior (-2)
+        repeticionesfor = int(self.tamanio()) - pos  -2
+        
         #[D] 1.1 Encontrar nodo anterior
         actual = self.cabeza
         anterior = None
-        for i in range(0, posicionlistado):
-            anterior = actual
-            actual = actual.obtenerSiguiente()
+        if repeticionesfor >=0 :
+            for i in range(0, repeticionesfor):
+                anterior = actual
+                actual = actual.obtenerSiguiente()
         
-        #[D] 2.0 Remplazar apuntadores
-        #[D] 2.1 Obtener Nodos
-        nodoaeliminar = actual.obtenerSiguiente()
-        nodosiguiente = nodoaeliminar.obtenerSiguiente()
-        #[D] 2.2 Remplazar Nodos
-        actual.asignarSiguiente(nodosiguiente)
-        print("Nodo Eliminado")
+            #[D] 2.0 Remplazar apuntadores
+            #[D] 2.1 Obtener Nodos
+            nodoaeliminar = actual.obtenerSiguiente()
+            nodosiguiente = nodoaeliminar.obtenerSiguiente()
+            #[D] 2.2 Remplazar Nodos
+            actual.asignarSiguiente(nodosiguiente)
+            print("Nodo Eliminado [ "+nodoaeliminar.obtenerDato() +" ]")
+            return nodoaeliminar
+        else:
+            #CUANDO ES EL UTLIMO NODO
+            #[D] 2.2 Remplazar Nodos
+            temp = self.cabeza.obtenerSiguiente()
+            self.cabeza = temp
+            print("Nodo Eliminado [ "+actual.obtenerDato() +" ]")
+            return actual
 
-        return nodoaeliminar
+        # return nodoaeliminar
 
         
 
