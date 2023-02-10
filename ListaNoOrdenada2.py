@@ -162,15 +162,15 @@ class ListaNoOrdenada:
             actual = actual.obtenerSiguiente()
         print(actual.obtenerDato())
         print(actual.obtenerSiguiente().obtenerDato())
-        #[D] 2.0 Remplazar apuntadores
-        #[D] 2.1 Obtener Nodos
-        nodoaeliminar = actual.obtenerSiguiente()
-        nodosiguiente = nodoaeliminar.obtenerSiguiente()
-        #[D] 2.2 Remplazar Nodos
-        actual.asignarSiguiente(nodosiguiente)
-        print("Nodo Eliminado [ "+nodoaeliminar.obtenerDato() +" ]")
+        # #[D] 2.0 Remplazar apuntadores
+        # #[D] 2.1 Obtener Nodos
+        # nodoaeliminar = actual.obtenerSiguiente()
+        # nodosiguiente = nodoaeliminar.obtenerSiguiente()
+        # #[D] 2.2 Remplazar Nodos
+        # actual.asignarSiguiente(nodosiguiente)
+        # print("Nodo Eliminado [ "+nodoaeliminar.obtenerDato() +" ]")
 
-        return nodoaeliminar
+        # return nodoaeliminar
 
         
 
