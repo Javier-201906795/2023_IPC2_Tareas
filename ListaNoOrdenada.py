@@ -138,7 +138,7 @@ class ListaNoOrdenada:
         #print(posicion)
 
         #[B] 1.3 Retornar Ubicacion
-        posicion = numeronodostotal - contador
+        posicion = numeronodostotal - contador + 1
         
         return posicion
     
@@ -154,14 +154,13 @@ class ListaNoOrdenada:
         for i in range(0, posicionlistado):
             anterior = actual
             actual = actual.obtenerSiguiente() 
-        
-        print(actual.obtenerDato())
-        print(actual.obtenerSiguiente())
         #[C] 2.0 Crear Nuevo Nodo
         newNodo = Nodo(item)
-
-        
         #[C] 3.0 Insertar nuevo nodo
+        #[C] 3.1 Cambiar apuntador del Nuevo Nodo
+        newNodo.asignarSiguiente(actual.obtenerSiguiente())
+        #[C] 3.2 Cambiar apuntador Nodo Actual
+        actual.asignarSiguiente(newNodo)
         #[C] 4.0 cambiar apuntadores
         pass
 
@@ -202,20 +201,20 @@ miLista.indice("Juan")
 
 miLista.indice("Mario")
 
-# In[32]:
 
+# In[]:
+miLista.indice("Juan")
+# In[]:
 miLista.indice("Pedro")
-
+# In[]:
+miLista.indice("Jose")
 # In[33]:
 
-miLista.insertar(1,"Juan")
+miLista.insertar(2,"Pancho")
 
-# In[33]:
+# In[31]:
 
-miLista.insertar(1,"Juan")
-miLista.insertar(2,"Pedro")
-miLista.insertar(3,"Jose")
-
+miLista.indice("Pancho")
 
 
 # In[34]
