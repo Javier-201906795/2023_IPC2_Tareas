@@ -134,10 +134,10 @@ class ListaNoOrdenada:
         #[C] 1.0 Buscar Item en esa posicion
         #[C] 1.1 Obtener posicion en el listado 
         posicionlistado = int(self.tamanio()) - pos
-        #[C] 1.2 Encontrar item a remplazar posicion
+        #[C] 1.2 Encontrar item a remplazar posicion (-1)
         actual = self.cabeza
         anterior = None
-        for i in range(0, posicionlistado):
+        for i in range(0, posicionlistado - 1):
             anterior = actual
             actual = actual.obtenerSiguiente() 
         #[C] 2.0 Crear Nuevo Nodo
@@ -150,22 +150,25 @@ class ListaNoOrdenada:
 
     def extraer(self,pos):
         #[D] Eliminar nodo por posicion
-        #[D] 1.0 Encontrar posicion nodo anterior
-        posicionlistado = int(self.tamanio()) - pos - 1
+        #[D] 1.0 Encontrar posicion nodo anterior (-2)
+        posicionlistado = int(self.tamanio()) - pos -1 
+        
+        print("repeticiones: " + str(posicionlistado))
         #[D] 1.1 Encontrar nodo anterior
         actual = self.cabeza
         anterior = None
         for i in range(0, posicionlistado):
             anterior = actual
             actual = actual.obtenerSiguiente()
-        
+        print(actual.obtenerDato())
+        print(actual.obtenerSiguiente().obtenerDato())
         #[D] 2.0 Remplazar apuntadores
         #[D] 2.1 Obtener Nodos
         nodoaeliminar = actual.obtenerSiguiente()
         nodosiguiente = nodoaeliminar.obtenerSiguiente()
         #[D] 2.2 Remplazar Nodos
         actual.asignarSiguiente(nodosiguiente)
-        print("Nodo Eliminado")
+        print("Nodo Eliminado [ "+nodoaeliminar.obtenerDato() +" ]")
 
         return nodoaeliminar
 
@@ -226,6 +229,6 @@ miLista.indice("Pancho")
 
 
 # In[34]
-miLista.extraer(2)
+miLista.extraer(1)
 
 # %%
