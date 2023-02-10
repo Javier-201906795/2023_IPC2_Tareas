@@ -148,12 +148,19 @@ class ListaNoOrdenada:
         #[C] 1.0 Buscar Item en esa posicion
         #[C] 1.1 Obtener posicion en el listado 
         posicionlistado = int(self.tamanio()) - pos
-        print(posicionlistado)
+        print("Buscar: "+ str(pos) +"\n"+"Tamaño: " + str(self.tamanio()) + "\n" + "Posicion: " + str(posicionlistado)+"\n"+"----------")
         #[C] 1.2 Encontrar item a remplazar posicion
+        actual = self.cabeza
+        anterior = None
         for i in range(0, posicionlistado):
-            print(i)
+            anterior = actual
+            actual = actual.obtenerSiguiente() 
+        
         #[C] 2.0 Crear Nuevo Nodo
         newNodo = Nodo(item)
+
+        #print(actual.obtenerDato())
+        #print(actual.obtenerSiguiente())
         #[C] 3.0 Insertar nuevo nodo
         #[C] 4.0 cambiar apuntadores
         pass
@@ -201,11 +208,20 @@ miLista.indice("Pedro")
 
 # In[33]:
 
-miLista.insertar(3,"Javier")
+miLista.insertar(1,"Juan")
 
 # In[33]:
 
-miLista.insertar(0,"Juancho")
+miLista.insertar(1,"Juan")
+miLista.insertar(2,"Pedro")
+miLista.insertar(3,"Jose")
 
+
+
+# In[34]
+posicionlistado = 3
+
+for i in range(0, posicionlistado):
+        print("paso aqui ", i )
 
 # %%
