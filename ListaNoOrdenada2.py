@@ -124,8 +124,6 @@ class ListaNoOrdenada:
 
         #[B] 1.3 Retornar Ubicacion
         # posicion = numeronodostotal - contador + 1
-        print("tamaño "+str(self.tamanio()))
-        print("contador" + str(contador))
         posicion = self.tamanio() - contador 
         
         return posicion
