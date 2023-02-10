@@ -78,6 +78,9 @@ class ListaNoOrdenada:
                 
             print("eliminado")
 
+
+    
+
     def anexar(self, item):
         #[A] 1.0 Encontrar ultimo apuntador
         actual = self.cabeza
@@ -140,6 +143,20 @@ class ListaNoOrdenada:
         return posicion
     
 
+    def insertar(self,pos,item):
+        #[C] Inserta un nuevo item en una posicion especificada
+        #[C] 1.0 Buscar Item en esa posicion
+        #[C] 1.1 Obtener posicion en el listado 
+        posicionlistado = int(self.tamanio()) - pos
+        print(posicionlistado)
+        #[C] 1.2 Encontrar item a remplazar posicion
+        for i in range(0, posicionlistado):
+            print(i)
+        #[C] 2.0 Crear Nuevo Nodo
+        newNodo = Nodo(item)
+        #[C] 3.0 Insertar nuevo nodo
+        #[C] 4.0 cambiar apuntadores
+        pass
 
 miLista = ListaNoOrdenada()
 
@@ -182,7 +199,13 @@ miLista.indice("Mario")
 
 miLista.indice("Pedro")
 
+# In[33]:
 
+miLista.insertar(3,"Javier")
+
+# In[33]:
+
+miLista.insertar(0,"Juancho")
 
 
 # %%
