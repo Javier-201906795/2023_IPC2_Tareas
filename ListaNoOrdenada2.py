@@ -121,27 +121,12 @@ class ListaNoOrdenada:
                 anterior = actual
                 actual = actual.obtenerSiguiente()
 
-        #[B] 2.1 Contar Numero TOTAL de Nodos
-        # banderafin = False
-        # actual = self.cabeza
-        # anterior = None
-        # numeronodostotal = 0
-        # while not banderafin:
-        #     numeronodostotal += 1
-        #     if actual.obtenerSiguiente() == None :
-        #         banderafin = True
-        #     else:
-        #         anterior = actual
-        #         actual = actual.obtenerSiguiente()
-        
-        #print(numeronodostotal)
-        #print(posicion)
 
         #[B] 1.3 Retornar Ubicacion
         # posicion = numeronodostotal - contador + 1
-        print(self.tamanio())
-        print(contador)
-        posicion = self.tamanio() - contador + 1
+        print("tamaño "+str(self.tamanio()))
+        print("contador" + str(contador))
+        posicion = self.tamanio() - contador 
         
         return posicion
     
